@@ -24,6 +24,7 @@ export default defineConfig({
       components: { PageTitle: './src/components/PageTitle.astro' },
       routeMiddleware: './src/sidebar-subtitles.ts',
       customCss: ['./src/styles/sidebar.css'],
+      pagination: false,
       sidebar: [
         {
           label: '第1層：入門',
