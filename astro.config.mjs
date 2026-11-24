@@ -26,7 +26,6 @@ export default defineConfig({
       customCss: ['./src/styles/sidebar.css'],
       pagination: false,
       sidebar: [
-        { label: 'このサイトについて', slug: 'about' },
         {
           label: '序章：学びの土台',
           collapsed: true,
@@ -65,6 +64,7 @@ export default defineConfig({
             { label: '組織運営', collapsed: true, items: [{ autogenerate: { directory: 'level-3/organization', collapsed: true } }] },
           ],
         },
+        { label: 'このサイトについて', slug: 'about', attrs: { class: 'site-about-link' } },
       ],
     }),
   ],
