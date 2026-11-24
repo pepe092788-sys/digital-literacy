@@ -1,5 +1,6 @@
 ---
-title: "部屋いっぱいの機械が、手のひらに収まるまで。"
+title: "コンピュータの小型化"
+subtitle: "部屋いっぱいの機械が、手のひらに収まるまで。"
 description: "コンピュータの小型化と技術の発展を学びます。"
 ---
 
@@ -88,4 +89,4 @@ description: "コンピュータの小型化と技術の発展を学びます。
 
 ## 次に読んでみる
 
-- [コンピュータは、ただ計算しているだけ。](../../computer-basics/computer-structure/)
+- [コンピュータの仕組み](../../computer-basics/computer-structure/)

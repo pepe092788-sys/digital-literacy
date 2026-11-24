@@ -1,5 +1,6 @@
 ---
-title: "コンピュータへの指示には、文法がある。"
+title: "プログラミング言語"
+subtitle: "コンピュータへの指示には、文法がある。"
 description: "プログラミング言語の文法と命令の意味を学びます。"
 ---
 
@@ -145,4 +146,4 @@ Python、JavaScript、Java、C、C#……。プログラミング言語には、
 
 ## 次に読んでみる
 
-- [複雑なプログラムも、基本の動きはたった3つ。](../../algorithms/basic-control-structures/)
+- [制御構造（順次・分岐・反復）](../../algorithms/basic-control-structures/)

@@ -1,5 +1,6 @@
 ---
-title: "複雑なプログラムも、基本の動きはたった3つ。"
+title: "制御構造（順次・分岐・反復）"
+subtitle: "複雑なプログラムも、基本の動きはたった3つ。"
 description: "順次・分岐・反復から処理の流れを学びます。"
 ---
 
@@ -160,4 +161,4 @@ description: "順次・分岐・反復から処理の流れを学びます。"
 
 ## 次に読んでみる
 
-- [コンピュータへの指示には、文法がある。](../../programming/programming-language/)
+- [プログラミング言語](../../programming/programming-language/)

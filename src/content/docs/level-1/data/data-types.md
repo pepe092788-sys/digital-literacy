@@ -1,5 +1,6 @@
 ---
-title: "「001」と「1」は、同じ数字とは限らない。"
+title: "データ型"
+subtitle: "「001」と「1」は、同じ数字とは限らない。"
 description: "数字と文字列の違いからデータ型を学びます。"
 ---
 
@@ -151,4 +152,4 @@ description: "数字と文字列の違いからデータ型を学びます。"
 
 ## 次に読んでみる
 
-- [コンピュータへの指示には、文法がある。](../../programming/programming-language/)
+- [プログラミング言語](../../programming/programming-language/)

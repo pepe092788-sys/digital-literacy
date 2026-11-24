@@ -1,5 +1,6 @@
 ---
-title: "ソフトウェアという、形のない道具。"
+title: "ソフトウェアの役割"
+subtitle: "ソフトウェアという、形のない道具。"
 description: "ハードウェアとソフトウェアの役割を学びます。"
 ---
 
@@ -147,4 +148,4 @@ OS・印刷の仕組み
 
 ## 次に読んでみる
 
-- [コンピュータは、ただ計算しているだけ。](../../computer-basics/computer-structure/)
+- [コンピュータの仕組み](../../computer-basics/computer-structure/)

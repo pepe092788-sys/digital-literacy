@@ -21,6 +21,7 @@ export default defineConfig({
       locales: {
         root: { label: '日本語', lang: 'ja' },
       },
+      components: { PageTitle: './src/components/PageTitle.astro' },
       sidebar: [
         {
           label: '第1層：入門',

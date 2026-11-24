@@ -1,5 +1,6 @@
 ---
-title: "動くプログラムと、良いプログラムは違う。"
+title: "ソフトウェア品質"
+subtitle: "動くプログラムと、良いプログラムは違う。"
 description: "動作だけでなく保守性を含むソフトウェア品質を学びます。"
 ---
 
@@ -88,4 +89,4 @@ description: "動作だけでなく保守性を含むソフトウェア品質を
 
 ## 次に読んでみる
 
-- [コンピュータへの指示には、文法がある。](../../../level-1/programming/programming-language/)
+- [プログラミング言語](../../../level-1/programming/programming-language/)
