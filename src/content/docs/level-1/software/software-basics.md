@@ -146,6 +146,14 @@ OS・印刷の仕組み
 
 そう考えると、普段何気なく使っているアプリも、少し違って見えてきませんか。
 
-## 次に読んでみる
+## 知識を広げる
 
-- [コンピュータの仕組み](../../computer-basics/computer-structure/)
+### 同じ階層で学ぶ
+
+- [コンピュータの仕組み](../../../level-1/computer-basics/computer-structure/)
+- [プログラミング言語](../../../level-1/programming/programming-language/)
+- [サーバー](../../../level-1/infrastructure/servers/)
+
+### 関連する知識を学ぶ
+
+- [ソフトウェア品質](../../../level-2/development/software-quality/)
