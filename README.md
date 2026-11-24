@@ -56,7 +56,7 @@ description: データの意味を身近な例から学びます。
 - 記事と同じディレクトリに置いた画像は、Markdown・MDX で `![画像の説明](./diagram.png)` と指定します。Astro が公開パスを含む画像 URL を生成します。
 - `public/` 内の画像を MDX で使う場合は、`<img src={import.meta.env.BASE_URL + 'images/diagram.png'} alt="画像の説明" />` のようにベースパスを付けます。
 
-## GitHub Pages 用にビルドする
+## GitHub Pages で公開する
 
 `astro.config.mjs` の `site` と `base` に、プロジェクトサイトの公開先 `https://pepe092788-sys.github.io/digital-literacy/` を設定しています。
 
@@ -66,3 +66,15 @@ npm run preview
 ```
 
 公開用の出力先は `dist/` です。`public/.nojekyll` はビルド時に `dist/` にコピーされるので、公開用の成果物にはこのファイルも含めます。
+
+### 初回公開と更新
+
+1. GitHub リポジトリの **Settings → Pages → Build and deployment** で、**Source** が **GitHub Actions** になっていることを確認します。
+2. `main` に変更をプッシュすると、**Deploy to GitHub Pages** が依存関係のインストール、ビルド、成果物のアップロード、デプロイを順に実行します。手動で公開するには、**Actions → Deploy to GitHub Pages → Run workflow** で `main` を選びます。
+3. **deploy** ジョブの成功後に、公開 URL を開きます。公開先は [Digital Literacy](https://pepe092788-sys.github.io/digital-literacy/) です。
+
+### エラーを確認する
+
+**Actions → Deploy to GitHub Pages** で対象の実行を開きます。**build** が失敗した場合は、**Install, build, and upload the site** のログで失敗した処理を確認します。ビルドが失敗すると **deploy** は実行されません。**deploy** が失敗した場合は、そのジョブのログと **Settings → Pages** の公開元を確認します。
+
+記事や設定を修正したら `npm ci` と `npm run build` でローカル確認し、`main` に反映します。一時的なエラーの場合は、対象の実行画面から **Re-run jobs** を選べます。
