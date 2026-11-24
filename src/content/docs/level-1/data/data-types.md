@@ -150,6 +150,13 @@ description: "数字と文字列の違いからデータ型を学びます。"
 
 その問いが、データを正しく扱う第一歩になります。
 
-## 次に読んでみる
+## 知識を広げる
 
-- [プログラミング言語](../../programming/programming-language/)
+### 同じ階層で学ぶ
+
+- [プログラミング言語](../../../level-1/programming/programming-language/)
+- [コンピュータの仕組み](../../../level-1/computer-basics/computer-structure/)
+
+### 関連する知識を学ぶ
+
+- [機械学習](../../../level-2/ai/machine-learning/)
