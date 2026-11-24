@@ -30,20 +30,12 @@ export default defineConfig({
           ],
         },
         {
-          label: '第2層：基礎',
+          label: '第2層：応用',
           items: [{ autogenerate: { directory: 'level-2' } }],
         },
         {
-          label: '第3層：中級',
+          label: '第3層：専門',
           items: [{ autogenerate: { directory: 'level-3' } }],
-        },
-        {
-          label: '第4層：上級',
-          items: [{ autogenerate: { directory: 'level-4' } }],
-        },
-        {
-          label: '第5層：専門',
-          items: [{ autogenerate: { directory: 'level-5' } }],
         },
       ],
     }),
