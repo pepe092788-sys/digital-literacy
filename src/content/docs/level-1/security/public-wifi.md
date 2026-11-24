@@ -30,6 +30,10 @@ description: "空港とホテルで実際に起きた事件から、公衆Wi‑F
 
 Wi‑Fiの名前は、接続先を選ぶための手がかりです。その名前だけで、運営者や安全対策までは確かめられません。会社が接続方法を決めるのは、万一のときに、そのPCやアカウントで扱う業務情報まで被害が広がり得るからです。 [政府機関等のセキュリティ対策ガイドライン（PDF）](https://www.cyber.go.jp/pdf/policy/general/guider7.pdf)
 
-## 次に読んでみる
+## 知識を広げる
 
-- [ハードコード](../hardcoding/)
+### 同じ階層で学ぶ
+
+- [多要素認証](../../../level-1/security/multi-factor-authentication/)
+- [ハードコード](../../../level-1/security/hardcoding/)
+- [ネットワーク障害](../../../level-1/network/network-troubles/)
