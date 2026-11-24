@@ -25,8 +25,8 @@ export default defineConfig({
         {
           label: '第1層：入門',
           items: [
-            { slug: 'level-1' },
-            { label: 'セキュリティ', autogenerate: { directory: 'level-1/security' } },
+            { label: '概要', slug: 'level-1' },
+            { label: 'セキュリティ', items: [{ autogenerate: { directory: 'level-1/security' } }] },
           ],
         },
         {
