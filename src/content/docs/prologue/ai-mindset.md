@@ -3,7 +3,7 @@ title: "AIとの向き合い方"
 subtitle: "考えることまでAIに任せてよいのか"
 description: "AIに任せる作業と、人間が判断し理解することを目的に応じて区別する。"
 sidebar:
-  order: 100
+  order: 40
 ---
 
 AIに文章を書いてもらうと、短い時間で資料が完成します。
@@ -61,13 +61,10 @@ AIに任せることと、自分で理解することは両立します。
 
 ## 知識を広げる
 
-### 同じ階層で学ぶ
-
-- [批判的思考](../critical-thinking/)
-- [メタ認知](../metacognition/)
-- [自律的学習](../self-directed-learning/)
-
 ### 関連する知識を学ぶ
 
+- [学ぶ姿勢](../learning-attitude/)
+- [考える力](../thinking-skills/)
+- [学ぶ力](../learning-skills/)
 - [生成AIのスキル](../../level-2/ai/skills/)
 - [システム開発のプロセス](../../level-2/development/development-process/)
