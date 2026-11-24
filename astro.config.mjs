@@ -3,13 +3,20 @@ import { defineConfig } from 'astro/config'
 
 export default defineConfig({
   output: 'static',
-  site: process.env.SITE_URL,
-  base: process.env.SITE_BASE ?? '/',
+  site: 'https://pepe092788-sys.github.io',
+  base: '/digital-literacy',
   trailingSlash: 'always',
   integrations: [
     starlight({
-      title: '基礎から学ぶ',
-      description: 'AI時代に必要な基礎知識と教養を学ぶ日本語の教育サイトです。',
+      title: 'Digital Literacy',
+      description: 'AI時代に人間が備えておくべき基礎知識・教養を学ぶ教育サイト',
+      social: [
+        {
+          icon: 'github',
+          label: 'GitHub',
+          href: 'https://github.com/pepe092788-sys/digital-literacy',
+        },
+      ],
       defaultLocale: 'root',
       locales: {
         root: { label: '日本語', lang: 'ja' },
