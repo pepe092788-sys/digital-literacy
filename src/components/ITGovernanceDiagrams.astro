@@ -1,0 +1,26 @@
+---
+interface Props { kind: 'optimization' | 'cycle' | 'roles' }
+const {kind}=Astro.props;
+const departments=[['営業部','顧客管理'],['製造部','生産管理'],['総務部','書類管理']];
+---
+{kind==='optimization' && <figure class="frame">
+<strong>部分最適：部署ごとにITを導入する</strong>
+<svg viewBox="0 0 340 175" role="img" aria-label="部署別にシステムとデータが分かれている構成">{departments.map(([name,system],i)=><g><rect x={5+i*113} y="5" width="104" height="163" rx="7" fill="#8b99a8" fill-opacity=".06" stroke="#8b99a8" stroke-dasharray="4 3"/><text x={57+i*113} y="26" fill="currentColor" font-size="12" font-weight="bold" text-anchor="middle">{name}</text><rect x={15+i*113} y="40" width="84" height="36" rx="5" fill="#588fba" fill-opacity=".13" stroke="#588fba"/><text x={57+i*113} y="62" fill="currentColor" font-size="11" text-anchor="middle">{system}</text><path d={`M${57+i*113} 76 v23`} stroke="currentColor" stroke-opacity=".4"/><path d={`M${27+i*113} 110 v28 a30 8 0 0 0 60 0 v-28`} fill="#8b99a8" fill-opacity=".12" stroke="#8b99a8"/><ellipse cx={57+i*113} cy="110" rx="30" ry="8" fill="#8b99a8" fill-opacity=".25" stroke="#8b99a8"/><text x={57+i*113} y="132" fill="currentColor" font-size="10" text-anchor="middle">データ</text></g>)}</svg>
+<p class="note">部署ごとに便利でも、データの重複や連携の問題が発生することがある。</p>
+<hr/>
+<strong>全体最適：組織全体を考えてITを活用する</strong>
+<svg viewBox="0 0 340 215" role="img" aria-label="会社共通の方針のもとで各部署のデータ管理と連携を考える構成"><rect x="5" y="5" width="330" height="205" rx="8" fill="#438e70" fill-opacity=".04" stroke="#438e70"/><rect x="49" y="17" width="242" height="35" rx="5" fill="#438e70" fill-opacity=".13" stroke="#438e70"/><text x="170" y="39" font-size="12" font-weight="bold" fill="currentColor" text-anchor="middle">会社共通の方針・目標</text><path d="M170 52 V66 H58 V79 M170 66 V79 M170 66 H282 V79" fill="none" stroke="#438e70" stroke-width="1.5"/>{departments.map(([name],i)=><g><rect x={13+i*112} y="79" width="90" height="35" rx="5" fill="#588fba" fill-opacity=".1" stroke="#588fba"/><text x={58+i*112} y="101" font-size="12" fill="currentColor" text-anchor="middle">{name}</text><path d={`M${58+i*112} 114 V135 H170`} fill="none" stroke="#588fba" stroke-width="1.5"/></g>)}<path d="M170 135 V150" stroke="#588fba" stroke-width="1.5"/><rect x="49" y="150" width="242" height="43" rx="6" fill="#438e70" fill-opacity=".1" stroke="#438e70"/><text x="170" y="168" fill="currentColor" font-weight="bold" text-anchor="middle" font-size="12">共通のデータ管理・連携</text><text x="170" y="183" fill="currentColor" text-anchor="middle" font-size="10">組織全体で活用できる仕組み</text></svg>
+<figcaption>各部署の必要性を尊重しながら、会社全体の目的や共通方針との整合性を考える例。</figcaption></figure>}
+{kind==='cycle' && <figure class="frame"><svg viewBox="0 0 340 300" role="img" aria-label="評価・指示・モニタリングの循環"><defs><marker id="governanceArrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#8199ac"/></marker></defs><path d="M218 61 Q289 90 275 164 M223 241 Q170 280 117 241 M65 165 Q49 91 122 61" stroke="#8199ac" stroke-width="2" fill="none" marker-end="url(#governanceArrow)"/><circle cx="170" cy="48" r="46" stroke="#588fba" stroke-width="1.6" fill="#588fba" fill-opacity=".13"/><circle cx="270" cy="216" r="46" stroke="#438e70" stroke-width="1.6" fill="#438e70" fill-opacity=".13"/><circle cx="70" cy="216" r="46" stroke="#9878c0" stroke-width="1.6" fill="#9878c0" fill-opacity=".13"/><g fill="currentColor" text-anchor="middle"><text x="170" y="45" font-size="13" font-weight="bold">評価</text><text x="170" y="62" font-size="11">Evaluate</text><text x="270" y="213" font-size="13" font-weight="bold">指示</text><text x="270" y="230" font-size="11">Direct</text><text x="70" y="213" font-size="12" font-weight="bold">モニタリング</text><text x="70" y="230" font-size="11">Monitor</text><text x="170" y="137" font-size="14" font-weight="bold">組織の目的</text><text x="170" y="156" font-size="11">価値の創出</text><text x="170" y="172" font-size="11">リスクの管理</text></g></svg><figcaption>ITガバナンスを継続的に機能させる三つの活動。</figcaption></figure>}
+{kind==='roles' && <figure class="frame"><div class="role"><strong>ITガバナンス</strong><p>組織として方向性を決め、監督する。</p><small>何のために行うのか・何を目指すのか・適切に進んでいるのか</small></div><div class="directions"><span>↓ 方針・指示</span><span>↑ 成果・報告</span></div><div class="role manage"><strong>ITマネジメント</strong><p>方針に沿って、具体的な活動を計画・実行・管理する。</p><small>システムの企画・開発・運用・保守・改善</small></div><figcaption>方針と実行結果のやり取りを通じ、ガバナンスとマネジメントは連携する。</figcaption></figure>}
+<style>
+.frame{margin-block:1rem;border:1px solid var(--sl-color-gray-5);border-radius:.65rem;padding:1rem;text-align:center}
+svg{display:block;max-width:34rem;width:100%;height:auto;margin:.65rem auto}
+figcaption,.note,small{font-size:.82rem;color:var(--sl-color-gray-2);line-height:1.5}
+figcaption{margin-top:.65rem}
+.role{padding:1rem;border:1px solid #588fba;border-radius:.5rem;text-align:left}
+.role.manage{border-color:#438e70}
+.role p{margin:.4rem 0}
+.directions{display:flex;justify-content:center;gap:1.5rem;font-size:.9rem;margin:.7rem 0;color:var(--sl-color-gray-2)}
+hr{margin:1.25rem 0}
+</style>
