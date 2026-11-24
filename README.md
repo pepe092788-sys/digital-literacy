@@ -20,17 +20,15 @@ npm run build
 npm run preview
 ```
 
-## 知識の5階層
+## 知識の3階層
 
 教材を知識の深度に沿って整理します。トップページの「教材を見る」から第1層に入り、サイドバーからすべての階層の概要を開けます。
 
 | 階層 | ディレクトリ |
 | --- | --- |
 | 第1層：入門 | `src/content/docs/level-1/` |
-| 第2層：基礎 | `src/content/docs/level-2/` |
-| 第3層：中級 | `src/content/docs/level-3/` |
-| 第4層：上級 | `src/content/docs/level-4/` |
-| 第5層：専門 | `src/content/docs/level-5/` |
+| 第2層：応用 | `src/content/docs/level-2/` |
+| 第3層：専門 | `src/content/docs/level-3/` |
 
 各階層の `index.md` は概要ページです。教材が0件でも、概要ページとサイドバーに各階層が表示されます。
 
@@ -38,7 +36,7 @@ npm run preview
 
 1. 対象の階層を選び、その配下に分野のディレクトリを作ります。
 2. 分野のディレクトリに `.md` または `.mdx` の記事を作成し、フロントマターに `title` と `description` を設定します。図解やクイズでコンポーネントを使う場合は MDX を選び、再利用するコンポーネントは `src/components/` に置きます。
-3. 開発サーバーで本文とサイドバーを確認し、`npm run build` で公開用の生成を確認します。分野と記事はサイドバーの該当階層に自動で追加されます。
+3. 開発サーバーで本文とサイドバーを確認し、`npm run build` で公開用の生成を確認します。分野と記事はサイドバーの該当階層に追加します。明示的な分野設定を使う階層では、日本語の分野名とディレクトリを astro.config.mjs で設定します。
 
 記事のパスは `src/content/docs/level-2/<分野のslug>/<記事のslug>.md`、公開 URL のパスは `/digital-literacy/level-2/<分野のslug>/<記事のslug>/` の形式です。分野と記事の slug には小文字の英数字とハイフンを使います。
 
