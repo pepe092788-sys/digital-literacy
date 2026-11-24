@@ -159,6 +159,13 @@ description: "順次・分岐・反復から処理の流れを学びます。"
 ひとつひとつの処理は単純でも、その組み合わせによって、さまざまな問題を解決できるのです。
 :::
 
-## 次に読んでみる
+## 知識を広げる
 
-- [プログラミング言語](../../programming/programming-language/)
+### 同じ階層で学ぶ
+
+- [プログラミング言語](../../../level-1/programming/programming-language/)
+- [データ型](../../../level-1/data/data-types/)
+
+### 関連する知識を学ぶ
+
+- [機械学習](../../../level-2/ai/machine-learning/)
