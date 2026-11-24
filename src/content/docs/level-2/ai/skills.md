@@ -48,3 +48,10 @@ AIが、会議メモに書かれていない期限を「金曜日」とまとめ
 - [OpenAI「ChatGPT のスキル」](https://help.openai.com/ja-jp/articles/20001066-skills-in-chatgpt)
 - [Anthropic「Agent Skills」](https://platform.claude.com/docs/en/agents-and-tools/agent-skills/overview)
 - [Google「Gems からスキルへの移行について」](https://support.google.com/gemini/answer/18560919)
+
+## 知識を広げる
+
+### 同じ階層で学ぶ
+
+- [機械学習](../../../level-2/ai/machine-learning/)
+- [ソフトウェア品質](../../../level-2/development/software-quality/)
