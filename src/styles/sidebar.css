@@ -10,3 +10,7 @@
   font-weight: 400;
   line-height: 1.45;
 }
+
+#starlight__sidebar a[data-article-subtitle]:not([aria-current='page'])::after {
+  color: color-mix(in srgb, var(--sl-color-gray-3) 80%, var(--sl-color-gray-2));
+}
