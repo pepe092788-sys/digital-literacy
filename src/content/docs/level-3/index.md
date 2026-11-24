@@ -13,4 +13,4 @@ sidebar:
 ## 組織運営
 
 - [ITガバナンス](./organization/it-governance/)
-
+- [AIガバナンス](./organization/ai-governance/)

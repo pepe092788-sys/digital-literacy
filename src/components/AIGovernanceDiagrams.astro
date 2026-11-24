@@ -1,0 +1,39 @@
+---
+interface Props { kind: 'delegation' | 'structure' }
+const {kind}=Astro.props;
+const levels=[
+  {title:'AIが補助する',example:'文章の下書き・情報整理',ai:'下書き・整理',human:'内容を確認し、自ら判断する'},
+  {title:'AIが提案する',example:'需要予測・異常検知・改善案',ai:'分析・候補の提案',human:'根拠や限界を確認し、採否を決める'},
+  {title:'AIが自動で処理する',example:'許可された範囲の定型処理',ai:'設定された範囲の処理',human:'範囲を定め、監督・介入する'}
+];
+---
+{kind==='delegation' && <figure class="frame">
+<div class="levels">{levels.map(l=><section class="level"><strong>{l.title}</strong><p class="example">{l.example}</p><div class="roles"><div class="ai"><b>AIの役割</b><p>{l.ai}</p></div><div class="human"><b>人間の役割</b><p>{l.human}</p></div></div></section>)}</div>
+<figcaption>業務の性質と判断を誤った場合の影響に応じて、任せる範囲と監督方法を決める。自動化の段階を上げること自体が目的ではない。</figcaption>
+</figure>}
+{kind==='structure' && <figure class="frame">
+<div class="policy"><strong>AIガバナンス</strong><p>目的・方針・責任・監督</p></div>
+<div class="connector">↓ 方針・指示</div>
+<div class="grid">{['利用ガイドライン','審査・承認','人材育成','利用環境の整備'].map(label=><div>{label}</div>)}</div>
+<div class="connector">↓ 実際のAI活用</div>
+<div class="review"><strong>モニタリング・評価</strong><p>成果・利用実態・品質・リスク</p></div>
+<div class="connector">↺ 評価結果を方針・運用の見直しに反映</div>
+<figcaption>利用ガイドラインは、ガバナンスを機能させるための取り組みの一つ。</figcaption>
+</figure>}
+<style>
+.frame{border:1px solid var(--sl-color-gray-5);border-radius:.65rem;padding:1rem;margin-block:1rem}
+.levels{display:grid;gap:.8rem}
+.level{border:1px solid var(--sl-color-gray-5);border-radius:.5rem;padding:.8rem;margin:0}
+.example{font-size:.85rem;color:var(--sl-color-gray-2);margin:.2rem 0 .65rem}
+.roles{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.5rem}
+.roles>div{border-radius:.4rem;padding:.6rem;border:1px solid #9878c0;overflow-wrap:anywhere}
+.roles>.human{border-color:#588fba}
+.roles p,.policy p,.review p{margin:.3rem 0 0;font-size:.85rem}
+.policy,.review{border:1px solid #588fba;border-radius:.5rem;padding:.75rem;text-align:center}
+.review{border-color:#438e70}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.5rem}
+.grid>div{border:1px solid var(--sl-color-gray-5);border-radius:.4rem;padding:.65rem;text-align:center;font-size:.9rem}
+.connector{text-align:center;font-size:.85rem;color:var(--sl-color-gray-2);margin:.6rem 0}
+figcaption{font-size:.82rem;color:var(--sl-color-gray-2);text-align:center;margin-top:.8rem;line-height:1.5}
+@media(max-width:380px){.roles{grid-template-columns:1fr}}
+</style>
