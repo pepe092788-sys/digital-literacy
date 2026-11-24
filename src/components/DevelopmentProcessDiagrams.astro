@@ -1,0 +1,47 @@
+---
+interface Props { kind: 'overview' | 'design' | 'tests' | 'pilot' | 'iteration' }
+const {kind}=Astro.props;
+const stages=[
+['企画・構想','実現できるのか？','PoC・フィージビリティスタディ'],
+['要求整理・設計','何を作ればよいのか？','モックアップ・プロトタイプ'],
+['開発・実装','正しく動くのか？','単体テスト・結合テスト・システムテスト'],
+['導入前の確認','求められているものなのか？','受入テスト・ユーザビリティテスト'],
+['試験導入','実際の業務でも役立つのか？','パイロット導入・実証実験'],
+['運用・改善','より良く使い続けられるか？','回帰テスト・A/Bテスト']];
+const units=['画像撮影','AI識別','データ保存'];
+---
+{kind==='overview' && <figure class="process"><ol class="steps">{stages.map(([stage,q,terms])=><li><small>{stage}</small><strong>{q}</strong><span>{terms}</span></li>)}</ol><figcaption>代表的な開発の流れ。実際には工程を行き来しながら進めることもあります。</figcaption></figure>}
+{kind==='design' && <div class="pair">{[false,true].map(real=><figure class="panel"><svg viewBox="0 0 180 130" role="img" aria-label={real?'商品Aが3個と表示される操作確認用の試作品':'画面配置を示した模型'}>
+<rect x="10" y="5" width="160" height="120" rx="5" fill="#f4f7fa" stroke="#8295a7"/><rect x="10" y="5" width="160" height="20" rx="4" fill={real?'#32699b':'#c6d4e0'}/><text x="20" y="19" fill={real?'#fff':'#24384b'} font-size="10">在庫管理</text>
+<rect x="20" y="34" width="68" height="54" rx="3" fill={real?'#e1eee6':'#e1e7ed'} stroke="#8295a7"/>
+{real?<g fill="#78a68b" stroke="#54826a"><rect x="29" y="44" width="18" height="18"/><rect x="53" y="44" width="18" height="18"/><rect x="41" y="66" width="18" height="16"/></g>:<path d="M25 78 L42 54 L57 67 L67 52 L83 78" fill="none" stroke="#8195a7"/>}
+{real?<g fill="#24384b" font-size="10"><text x="98" y="46">識別結果</text><text x="98" y="63">商品A：3個</text></g>:<g fill="#8195a7"><rect x="98" y="37" width="58" height="5" rx="2"/><rect x="98" y="49" width="48" height="5" rx="2"/><rect x="98" y="61" width="53" height="5" rx="2"/></g>}
+<rect x="20" y="96" width="136" height="18" rx="3" fill={real?'#27846e':'#b9c7d4'}/><text x="88" y="108" font-size="9" text-anchor="middle" fill={real?'#fff':'#24384b'}>登録する</text>
+{real&&<path d="M118 105 L128 121 L130 113 L138 111 Z" fill="#fff" stroke="#333"/>}</svg><strong>{real?'プロトタイプ':'モックアップ'}</strong><figcaption>{real?'機能や操作方法を試すための試作品（図はイメージ）':'画面の見た目や配置を確認する模型'}</figcaption></figure>)}</div>}
+{kind==='tests' && <figure class="process"><section><strong>単体テスト</strong><div class="units">{units.map(u=><div><span>{u}</span><small>✓</small></div>)}</div><figcaption>個々の機能を独立して確認する。</figcaption></section><section><strong>結合テスト</strong><div class="unit-frame"><div class="units">{units.map((u,i)=><div><span>{u}</span>{i<2&&<b aria-hidden="true">→</b>}</div>)}</div></div><figcaption>機能同士が正しく連携するかを確認する。</figcaption></section><section><strong>システムテスト</strong><div class="system-frame"><small>在庫管理システム全体</small><div class="units">{units.map(u=><div><span>{u}</span></div>)}</div><div class="requirement">機能・性能・セキュリティなどの要求</div></div><figcaption>システム全体が要求された機能や品質を満たしているか確認する。</figcaption></section></figure>}
+{kind==='pilot' && <figure class="process"><div class="warehouses">{['A','B','C','D'].map((name,i)=><div class:list={['warehouse',{active:i===0}]}><svg viewBox="0 0 60 45" aria-hidden="true"><path d="M5 18 30 4 55 18 V40 H5Z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M21 40 V22 H39 V40 M21 28 H39 M21 34 H39" fill="none" stroke="currentColor" stroke-width="2"/></svg><strong>倉庫{name}</strong><small>{i===0?'試験導入':'従来運用'}</small></div>)}</div><div class="transition">↓<br/>効果や課題を確認・改善<br/>↓</div><div class="warehouses">{['A','B','C','D'].map(name=><div class="warehouse active"><svg viewBox="0 0 60 45" aria-hidden="true"><path d="M5 18 30 4 55 18 V40 H5Z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M21 40 V22 H39 V40 M21 28 H39 M21 34 H39" fill="none" stroke="currentColor" stroke-width="2"/></svg><strong>倉庫{name}</strong><small>本格導入</small></div>)}</div><figcaption>試験導入の結果が良好であれば、導入範囲を拡大する。</figcaption></figure>}
+{kind==='iteration' && <figure class="process"><svg viewBox="0 0 340 260" role="img" aria-label="企画、設計、開発、検証、導入・運用へ進み、検証から設計へ、導入・運用から開発へ戻る模式図"><defs><marker id="devArrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#6691b4"/></marker><marker id="devBack" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#bd9858"/></marker></defs>{['企画','設計','開発','検証','導入・運用'].map((label,i)=><g><rect x="24" y={8+i*51} width="150" height="34" rx="6" stroke="#6691b4" fill="#6691b4" fill-opacity=".1"/><text x="99" y={29+i*51} text-anchor="middle" font-size="12" fill="currentColor">{label}</text>{i!==4&&<path d={`M99 ${42+i*51} V${57+i*51}`} stroke="#6691b4" stroke-width="1.8" marker-end="url(#devArrow)" fill="none"/>}</g>)}<path d="M174 178 H207 V76 H177" stroke="#bd9858" stroke-width="1.5" fill="none" marker-end="url(#devBack)"/><text x="213" y="119" font-size="11" fill="currentColor">設計の見直し</text><path d="M174 229 H247 V127 H177" stroke="#bd9858" stroke-width="1.5" fill="none" marker-end="url(#devBack)"/><text x="252" y="196" font-size="11" fill="currentColor">機能改善</text></svg><figcaption>検証結果や運用上の課題をもとに、必要な工程へ戻る。</figcaption></figure>}
+<style>
+.process,.panel{border:1px solid var(--sl-color-gray-5);border-radius:.65rem;padding:1rem;margin-block:1rem;min-width:0}
+.steps{list-style:none;padding:0;display:grid;gap:1.4rem;margin:0}
+.steps li{display:grid;gap:.15rem;background:var(--sl-color-gray-6);padding:.65rem .85rem;border-radius:.4rem;position:relative;margin:0}
+.steps li:not(:last-child)::after{content:'↓';position:absolute;bottom:-1.4rem;left:50%;color:var(--sl-color-gray-2)}
+small,figcaption,.steps span{font-size:.8rem;color:var(--sl-color-gray-2)}
+figcaption{margin-top:.65rem;line-height:1.5}
+.pair{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,13rem),1fr));gap:.75rem}
+svg{display:block;width:100%;max-width:32rem;height:auto;margin-inline:auto}
+.process section+section{border-top:1px solid var(--sl-color-gray-5);padding-top:1rem;margin-top:1rem}
+.units{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.7rem;margin:.7rem 0}
+.units div{position:relative;text-align:center;min-width:0}
+.units span{display:block;border:1px solid #6797c0;background:#6797c018;border-radius:.4rem;padding:.65rem .15rem;font-size:.8rem}
+.units small{color:#27846e;font-size:1rem;display:block}
+.units b{position:absolute;right:-.7rem;top:.6rem;color:#27846e}
+.unit-frame,.system-frame{border:1px dashed #6797c0;border-radius:.5rem;padding:.5rem}
+.system-frame{border:1px solid #389b7b;text-align:center}
+.requirement{background:#389b7b24;padding:.4rem;font-size:.8rem}
+.warehouses{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.4rem}
+.warehouse{border:1px solid var(--sl-color-gray-5);border-radius:.4rem;padding:.35rem;text-align:center;display:grid;gap:.2rem;font-size:.8rem}
+.warehouse.active{border-color:#389b7b;background:#389b7b14}
+.warehouse svg{max-width:3rem}
+.transition{text-align:center;font-size:.85rem;margin:.5rem 0}
+</style>
