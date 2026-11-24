@@ -26,6 +26,7 @@ export default defineConfig({
       customCss: ['./src/styles/sidebar.css'],
       pagination: false,
       sidebar: [
+        { label: 'このサイトについて', slug: 'about' },
         {
           label: '序章：学びの土台',
           collapsed: true,
