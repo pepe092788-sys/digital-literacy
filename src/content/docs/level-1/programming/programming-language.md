@@ -144,6 +144,15 @@ Python、JavaScript、Java、C、C#……。プログラミング言語には、
 
 そこから、プログラミングの世界が少しずつ見えてきます。
 
-## 次に読んでみる
+## 知識を広げる
 
-- [制御構造（順次・分岐・反復）](../../algorithms/basic-control-structures/)
+### 同じ階層で学ぶ
+
+- [制御構造（順次・分岐・反復）](../../../level-1/algorithms/basic-control-structures/)
+- [データ型](../../../level-1/data/data-types/)
+- [ソフトウェアの役割](../../../level-1/software/software-basics/)
+
+### 関連する知識を学ぶ
+
+- [ソフトウェア品質](../../../level-2/development/software-quality/)
+- [機械学習](../../../level-2/ai/machine-learning/)
