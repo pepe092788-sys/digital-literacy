@@ -39,3 +39,4 @@ Wi‑Fiの名前は、接続先を選ぶための手がかりです。その名�
 - [多要素認証](../../../level-1/security/multi-factor-authentication/)
 - [ハードコード](../../../level-1/security/hardcoding/)
 - [ネットワーク障害](../../../level-1/network/network-troubles/)
+- [シャドーIT・シャドーAI](../shadow-it-ai/)
