@@ -14,3 +14,8 @@
 #starlight__sidebar a[data-article-subtitle]:not([aria-current='page'])::after {
   color: color-mix(in srgb, var(--sl-color-gray-3) 80%, var(--sl-color-gray-2));
 }
+
+/* Reduce spacing between consecutive body paragraphs. */
+.sl-markdown-content p + p {
+  margin-top: 0.5rem;
+}
