@@ -87,6 +87,9 @@ description: "コンピュータの小型化と技術の発展を学びます。
 :::
     小さな部品を高密度に組み込めるようになったことで、性能やコスト、利用できる場所が変わり、コンピュータそのものの使い道が広がっていきました。
 
-## 次に読んでみる
+## 知識を広げる
 
-- [コンピュータの仕組み](../../computer-basics/computer-structure/)
+### 同じ階層で学ぶ
+
+- [コンピュータの仕組み](../../../level-1/computer-basics/computer-structure/)
+- [ソフトウェアの役割](../../../level-1/software/software-basics/)
