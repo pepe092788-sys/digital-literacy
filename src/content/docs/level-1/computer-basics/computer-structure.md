@@ -125,6 +125,14 @@ description: "コンピュータの計算・記憶・命令の仕組みを学び
 
 まずは、そのことを知っておくだけでも十分です。
 
-## 次に読んでみる
+## 知識を広げる
 
-- [ソフトウェアの役割](../../software/software-basics/)
+### 同じ階層で学ぶ
+
+- [ソフトウェアの役割](../../../level-1/software/software-basics/)
+- [コンピュータの小型化](../../../level-1/history/computer-miniaturization/)
+- [データ型](../../../level-1/data/data-types/)
+
+### 関連する知識を学ぶ
+
+- [機械学習](../../../level-2/ai/machine-learning/)
