@@ -31,7 +31,10 @@ export default defineConfig({
         },
         {
           label: '第2層：応用',
-          items: [{ autogenerate: { directory: 'level-2' } }],
+          items: [
+            { label: '概要', slug: 'level-2' },
+            { label: '生成AI', items: [{ autogenerate: { directory: 'level-2/ai' } }] },
+          ],
         },
         {
           label: '第3層：専門',
