@@ -81,6 +81,10 @@ description: "サーバーの役割とクラウドの基本を学びます。"
 !!! tip "今日のなるほど"
     サーバーは、特別な種類のコンピュータというより、ほかのコンピュータに機能や情報を提供する「役割」を指す言葉。クラウドを利用していても、その向こう側では実際のコンピュータが動いている。
 
-## 次に読んでみる
+## 知識を広げる
 
-- [ネットワーク障害](../../network/network-troubles/)
+### 同じ階層で学ぶ
+
+- [ネットワーク障害](../../../level-1/network/network-troubles/)
+- [コンピュータの仕組み](../../../level-1/computer-basics/computer-structure/)
+- [ソフトウェアの役割](../../../level-1/software/software-basics/)
