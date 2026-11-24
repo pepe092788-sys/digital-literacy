@@ -1,0 +1,24 @@
+---
+interface Props { kind: 'network' | 'cycle' | 'ai' }
+const {kind} = Astro.props;
+const points = [[38,24],[112,35],[22,79],[78,67],[119,107],[49,110]];
+const edges = [[0,1],[0,3],[1,3],[2,3],[2,5],[3,4],[3,5],[4,5]];
+const cycle = [['疑問を持つ','知的好奇心'],['知らないと知る','知的謙虚さ'],['調べて考える','論理・仮説思考'],['確かめる','批判的思考'],['知識をつなぐ','知識の体系化'],['理解を振り返る','メタ認知']];
+const position = (i:number, delta=0) => {
+  const a=(-90+i*60+delta)*Math.PI/180;
+  return [180+125*Math.cos(a),170+125*Math.sin(a)];
+};
+---
+{kind==='network' && <div class="pair">{[false,true].map(connected=><figure class="panel"><svg viewBox="0 0 150 130" role="img" aria-label={connected?'知識を表す点が線で結ばれている':'知識を表す点が独立している'}>{connected&&edges.map(([a,b])=><line x1={points[a][0]} y1={points[a][1]} x2={points[b][0]} y2={points[b][1]} stroke="#518eab" stroke-width="1.8"/>)}{points.map(([x,y],i)=><circle cx={x} cy={y} r={i===3?10:7} fill={connected?(i===3?'#27846e':'#518eab'):'#8b99a8'} fill-opacity={connected?1:.7}/>)}</svg><strong>{connected?'つながった知識':'断片的な知識'}</strong><figcaption>{connected?'知識同士の関係から、新しいことを考えられる':'個々の言葉や事実を知っている'}</figcaption></figure>)}</div>}
+{kind==='cycle' && <figure class="panel"><svg viewBox="0 0 360 340" role="img" aria-label="疑問を持ち、知らないと知り、調べて考え、確かめ、知識をつなぎ、理解を振り返る学びの循環"><defs><marker id="learningCycleArrow" markerWidth="7" markerHeight="7" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#8199ac"/></marker></defs>{cycle.map((_,i)=>{const [x1,y1]=position(i,24),[x2,y2]=position(i+1,-24);return <path d={`M${x1} ${y1} A125 125 0 0 1 ${x2} ${y2}`} stroke="#8199ac" stroke-width="2" fill="none" marker-end="url(#learningCycleArrow)"/>;})}{cycle.map(([label,term],i)=>{const [x,y]=position(i);return <g transform={`translate(${x} ${y})`}><rect x="-65" y="-23" width="130" height="46" rx="7" fill="#6192b6" fill-opacity=".13" stroke="#6192b6"/><text y="-3" fill="currentColor" font-size="12" font-weight="600" text-anchor="middle">{label}</text><text y="12" fill="currentColor" font-size="10" text-anchor="middle">{term}</text></g>;})}<circle cx="180" cy="170" r="56" fill="#27846e" fill-opacity=".1" stroke="#27846e" stroke-width="1.5"/><text x="180" y="166" font-size="15" fill="currentColor" font-weight="bold" text-anchor="middle">自律的な</text><text x="180" y="185" font-size="15" fill="currentColor" font-weight="bold" text-anchor="middle">学び</text></svg><figcaption>学びの循環を表した模式図。必ずこの順番で進める必要はありません。</figcaption></figure>}
+{kind==='ai' && <div class="pair">{[['答えを得る','人間が質問する','AIが回答する','答えを受け取る'],['理解を深める','人間が疑問を持つ','AIと対話する','自分でも考え、確かめる']].map(([title,a,b,c],i)=><figure class="panel comparison"><strong>{title}</strong><div class="stage">{a}</div><span class="arrow" aria-hidden="true">{i?'↕':'↓'}</span><div class="stage">{b}</div><span class="arrow" aria-hidden="true">{i?'↕':'↓'}</span><div class="stage">{c}</div></figure>)}</div>}
+<style>
+.pair{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,12rem),1fr));gap:.75rem;margin-block:1rem}
+.panel{margin:0;border:1px solid var(--sl-color-gray-5);border-radius:.6rem;padding:1rem;text-align:center;min-width:0}
+svg{display:block;width:100%;height:auto;max-width:30rem;margin:0 auto .5rem}
+.pair svg{max-width:12rem}
+figcaption{font-size:.82rem;color:var(--sl-color-gray-2);line-height:1.5;margin-top:.4rem}
+.comparison{display:grid;gap:.4rem;align-content:start}
+.stage{padding:.6rem .35rem;background:var(--sl-color-gray-6);border-radius:.35rem;font-size:.85rem}
+.arrow{color:var(--sl-color-gray-2)}
+</style>

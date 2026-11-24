@@ -27,6 +27,11 @@ export default defineConfig({
       pagination: false,
       sidebar: [
         {
+          label: '序章：学びの土台',
+          collapsed: true,
+          items: [{ autogenerate: { directory: 'prologue', collapsed: true } }],
+        },
+        {
           label: '第1層：入門',
           collapsed: true,
           items: [
