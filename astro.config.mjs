@@ -23,21 +23,24 @@ export default defineConfig({
       },
       sidebar: [
         {
-          label: 'コンピュータの基礎',
-          items: [{ autogenerate: { directory: 'computer-basics' } }],
+          label: '第1層：入門',
+          items: [{ autogenerate: { directory: 'level-1' } }],
         },
-        { label: 'ソフトウェア', items: [{ autogenerate: { directory: 'software' } }] },
-        { label: 'プログラミング', items: [{ autogenerate: { directory: 'programming' } }] },
-        { label: 'アルゴリズム', items: [{ autogenerate: { directory: 'algorithms' } }] },
-        { label: 'データ', items: [{ autogenerate: { directory: 'data' } }] },
-        { label: 'ネットワーク', items: [{ autogenerate: { directory: 'networks' } }] },
-        { label: 'インフラ', items: [{ autogenerate: { directory: 'infrastructure' } }] },
-        { label: 'セキュリティ', items: [{ autogenerate: { directory: 'security' } }] },
-        { label: 'システム開発', items: [{ autogenerate: { directory: 'systems-development' } }] },
-        { label: 'AI', items: [{ autogenerate: { directory: 'ai' } }] },
         {
-          label: 'コンピュータの歴史',
-          items: [{ autogenerate: { directory: 'computer-history' } }],
+          label: '第2層：基礎',
+          items: [{ autogenerate: { directory: 'level-2' } }],
+        },
+        {
+          label: '第3層：中級',
+          items: [{ autogenerate: { directory: 'level-3' } }],
+        },
+        {
+          label: '第4層：上級',
+          items: [{ autogenerate: { directory: 'level-4' } }],
+        },
+        {
+          label: '第5層：専門',
+          items: [{ autogenerate: { directory: 'level-5' } }],
         },
       ],
     }),
