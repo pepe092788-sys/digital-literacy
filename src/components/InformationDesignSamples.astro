@@ -1,0 +1,89 @@
+---
+interface Props { kind: 'visual' | 'diagram' | 'layout' | 'interactive' }
+const { kind } = Astro.props;
+---
+{kind === 'visual' && <div class="sample-grid">
+  <figure><div class="sketch"><b>コンピュータの仕組み</b><div class="sketch-flow"><span>CPU<br/>考える</span><span>↔</span><span>メモリ<br/>一時保存</span></div><div class="sketch-store">↕<br/>ストレージ：長期保存</div></div><figcaption>グラレコ風：手書き風の囲みと矢印で全体像を伝える</figcaption></figure>
+  <figure><div class="info"><b>コンピュータの3つの役割</b><div><strong>01 CPU</strong>　命令を実行</div><div><strong>02 メモリ</strong>　作業中のデータを保持</div><div><strong>03 ストレージ</strong>　データを長期保存</div></div><figcaption>インフォグラフィック風：要点を整理して比較する</figcaption></figure>
+  <figure><svg viewBox="0 0 300 190" role="img" aria-label="CPU、メモリ、ストレージを立体的な箱で表した模式図">
+    <rect width="300" height="190" rx="10" fill="#e9f0f8"/>
+    <g stroke="#34567a" stroke-width="1.5" stroke-linejoin="round">
+      <path d="M30 55 90 30 145 60 85 85Z" fill="#c6e0f2"/><path d="M30 55 85 85 85 115 30 85Z" fill="#6298c9"/><path d="M85 85 145 60 145 90 85 115Z" fill="#35699d"/>
+      <path d="M160 48 215 24 270 55 215 79Z" fill="#d3eddc"/><path d="M160 48 215 79 215 100 160 69Z" fill="#75b296"/><path d="M215 79 270 55 270 76 215 100Z" fill="#3a826b"/>
+      <path d="M102 125 159 101 215 132 158 156Z" fill="#ffdeac"/><path d="M102 125 158 156 158 177 102 146Z" fill="#d69b50"/><path d="M158 156 215 132 215 153 158 177Z" fill="#a66d2c"/>
+    </g><g fill="#18324d" font-size="12" font-weight="bold" text-anchor="middle"><text x="86" y="63">CPU：処理</text><text x="215" y="57">メモリ</text><text x="215" y="115">一時保存</text><text x="158" y="133">ストレージ</text><text x="158" y="145">長期保存</text></g>
+  </svg><figcaption>アイソメトリック風：立体的な見た目で部品を区別する（実機の配置図ではない）</figcaption></figure>
+  <figure><div class="comic"><div><b>CPU</b><span>「命令を実行するよ」</span></div><div><b>メモリ</b><span>「作業中のデータは任せて！」</span></div><div><b>ストレージ</b><span>「長く保存するのは僕の役目」</span></div></div><figcaption>漫画風：登場人物の会話で役割を説明する</figcaption></figure>
+  <figure><div class="blueprint"><b>COMPUTER / 機能模式図</b><div>┌ CPU：処理 ──┐<br/>↕<br/>メモリ：一時保存<br/>↕<br/>ストレージ：長期保存</div><small>模式図・配線を示すものではない</small></div><figcaption>ブループリント風：設計資料の雰囲気を持たせる</figcaption></figure>
+  <figure><div class="metaphor"><b>机で仕事をする人に例えると</b><div>👤 CPU：作業する人</div><div>📋 メモリ：作業机</div><div>🗄️ ストレージ：保管棚</div><small>役割の比喩であり、実際の構造ではない</small></div><figcaption>ビジュアルメタファー：身近なものに置き換える</figcaption></figure>
+</div>}
+{kind === 'diagram' && <div class="sample-grid">
+  <figure><div class="diagram"><b>フローチャート</b><div class="node">申請する</div><div>↓</div><div class="node">内容を確認</div><div>↓</div><div class="node">承認または差し戻し</div></div><figcaption>手順・処理（簡略化した例）</figcaption></figure>
+  <figure><svg viewBox="0 0 300 180" role="img" aria-label="作業遅延を設備、人、方法、材料の原因候補に分ける特性要因図"><rect width="300" height="180" rx="10" fill="#eef3f7"/><g stroke="#45637b" stroke-width="2" fill="none"><path d="M25 90 H245 L236 84 M245 90 L236 96 M65 30 L120 90 M160 30 L210 90 M65 150 L120 90 M160 150 L210 90"/></g><g fill="#243c52" font-size="13" text-anchor="middle"><text x="65" y="22">設備</text><text x="160" y="22">人</text><text x="65" y="165">方法</text><text x="160" y="165">材料</text><text x="267" y="80">作業</text><text x="267" y="98">遅延</text></g></svg><figcaption>特性要因図：原因候補を分類する</figcaption></figure>
+  <figure><svg viewBox="0 0 300 180" role="img" aria-label="CPUがメモリのデータを利用し、ストレージがデータを保存する関係図"><rect width="300" height="180" rx="10" fill="#eef3f7"/><g fill="#c4d9ed" stroke="#45637b"><rect x="110" y="15" width="80" height="33" rx="8"/><rect x="15" y="125" width="105" height="33" rx="8"/><rect x="180" y="125" width="105" height="33" rx="8"/></g><g stroke="#45637b" stroke-width="2" fill="none"><path d="M135 48 L75 125 M165 48 L230 125 M120 142 H180"/></g><g fill="#243c52" font-size="12" text-anchor="middle"><text x="150" y="36">CPU</text><text x="67" y="145">メモリ</text><text x="232" y="145">ストレージ</text><text x="80" y="83">利用</text><text x="223" y="83">読書き指示</text><text x="150" y="134">転送</text></g></svg><figcaption>コンセプトマップ：概念間の関係を言葉で示す（簡略図）</figcaption></figure>
+  <figure><svg viewBox="0 0 300 180" role="img" aria-label="画像資料と印刷資料の重なりを表すベン図"><rect width="300" height="180" rx="10" fill="#eef3f7"/><circle cx="105" cy="90" r="66" fill="#87b8dc" fill-opacity=".65" stroke="#45637b"/><circle cx="195" cy="90" r="66" fill="#e5af77" fill-opacity=".65" stroke="#98693d"/><g text-anchor="middle" fill="#243c52" font-size="12"><text x="84" y="68">画像資料</text><text x="216" y="68">印刷資料</text><text x="150" y="88">両方に</text><text x="150" y="103">使える</text></g></svg><figcaption>ベン図：集合の重なりを示す</figcaption></figure>
+</div>}
+{kind === 'layout' && <div class="sample-grid">
+  <figure><div class="bento"><b>コンピュータ</b><div>CPU<br/>処理</div><div>メモリ<br/>一時保存</div><div>ストレージ<br/>長期保存</div></div><figcaption>ベントーグリッド：大小の区画に情報を配置する</figcaption></figure>
+  <figure><div class="editorial"><b>コンピュータのしくみ</b><hr/><div><strong>CPU</strong> は命令を実行する。<br/><strong>メモリ</strong> は作業中のデータを保持する。<br/><strong>ストレージ</strong> はデータを長く保存する。</div></div><figcaption>エディトリアル風：見出しと本文で読ませる</figcaption></figure>
+  <figure><div class="cheat"><b>役割の早見表</b><table><thead><tr><th>部品</th><th>役割</th></tr></thead><tbody><tr><td>CPU</td><td>処理</td></tr><tr><td>メモリ</td><td>一時保存</td></tr><tr><td>ストレージ</td><td>長期保存</td></tr></tbody></table></div><figcaption>チートシート：必要な項目をすぐ参照する</figcaption></figure>
+  <figure><div class="onepage"><b>コンピュータの3つの役割</b><div>CPU：命令を実行</div><div>メモリ：作業中のデータ</div><div>ストレージ：長期保存</div><small>3つの役割が連携して動く</small></div><figcaption>ワンページャー風：一枚で要点を完結させる</figcaption></figure>
+</div>}
+{kind === 'interactive' && <div class="demo" data-memory-demo>
+  <label>同時に開くアプリの数：<output data-count>2</output> 個
+    <input aria-label="同時に開くアプリの数" type="range" min="1" max="6" value="2" step="1"/>
+  </label>
+  <div class="meter" aria-hidden="true"><div data-bar></div></div>
+  <p aria-live="polite" data-result>仮の使用量：3 / 8 GB（余裕あり）</p>
+  <small>各アプリが1.5 GBを使うと仮定した単純なモデル。実際のOSやアプリのメモリ管理を再現するものではありません。</small>
+</div>}
+<script>
+  for (const demo of document.querySelectorAll<HTMLElement>('[data-memory-demo]')) {
+    const input = demo.querySelector<HTMLInputElement>('input');
+    const count = demo.querySelector<HTMLOutputElement>('[data-count]');
+    const bar = demo.querySelector<HTMLElement>('[data-bar]');
+    const result = demo.querySelector<HTMLElement>('[data-result]');
+    if (!input || !count || !bar || !result) continue;
+    const render = () => {
+      const n = Number(input.value);
+      const used = n * 1.5;
+      count.value = String(n);
+      bar.style.width = Math.min(100, used / 8 * 100) + '%';
+      bar.style.backgroundColor = used > 8 ? '#b45309' : '#26816b';
+      result.textContent = '仮の使用量：' + used + ' / 8 GB（' + (used > 8 ? '仮定した容量を超過' : '容量内') + '）';
+    };
+    input.addEventListener('input', render);
+    render();
+  }
+</script>
+<style>
+  .sample-grid { display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,15rem),1fr));gap:1rem;margin-block:1.5rem; }
+  .sample-grid figure { margin:0;border:1px solid var(--sl-color-gray-5);border-radius:.75rem;padding:.65rem;overflow:hidden; }
+  .sample-grid figure > div { min-height:11rem;border-radius:.5rem;padding:.75rem;box-sizing:border-box;color:#21364a;background:#edf3f7;font-size:.85rem; }
+  .sample-grid svg { width:100%;height:auto;display:block; }
+  figcaption { font-size:.8rem;line-height:1.5;margin-top:.5rem;color:var(--sl-color-gray-2); }
+  .sample-grid .sketch { background:#fff8e6;color:#664b32;font-family:cursive; text-align:center; }
+  .sketch-flow { display:flex;gap:.45rem;align-items:center;justify-content:center;margin-top:.6rem; }
+  .sketch-flow span:first-child,.sketch-flow span:last-child { border:2px solid #b98045;border-radius:35% 25% 30% 20%;padding:.3rem; }
+  .sketch-store { margin-top:.25rem; }
+  .info > div,.onepage > div,.metaphor > div { margin:.45rem 0;padding:.35rem;background:#fff;border-left:4px solid #3175a6; }
+  .sample-grid .comic { background:#fff8e5;display:grid;gap:.3rem; }
+  .comic > div { display:flex;gap:.5rem;align-items:center;border:2px solid #554a36;background:#fff;padding:.25rem .35rem; }
+  .comic span { border:1px solid #a39371;border-radius:.7rem;padding:.25rem; }
+  .sample-grid .blueprint { color:#eaf6ff;background:repeating-linear-gradient(0deg,#133e65 0px,#133e65 19px,#2b5378 20px);text-align:center;font-family:monospace; }
+  .blueprint div { margin:.5rem 0;line-height:1.4; }
+  .sample-grid .diagram { text-align:center;display:grid;gap:.15rem;justify-items:center; }
+  .node { border:1px solid #56758d;background:#fff;border-radius:.35rem;padding:.15rem .5rem; }
+  .sample-grid .bento { display:grid;grid-template-columns:1fr 1fr;gap:.4rem; }
+  .bento b { grid-column:span 2; }
+  .bento div { background:#d0e5f4;padding:.5rem;border-radius:.45rem; }
+  .bento div:last-child { grid-column:span 2;background:#d6eadb; }
+  .sample-grid .editorial { background:#fdfaf4;font-family:serif; }
+  .editorial b { font-size:1.25rem; }.editorial div { line-height:1.8; }
+  .cheat table { font-size:.8rem;display:table; width:100%; margin:.3rem 0; }
+  .cheat th,.cheat td { padding:.25rem;color:#21364a;border-color:#b3c5d3; }
+  .demo { border:1px solid var(--sl-color-gray-5);border-radius:.7rem;padding:1rem;margin-block:1rem; }
+  .demo input { display:block;width:100%;margin:.75rem 0;accent-color:#26816b; }
+  .meter { height:1rem;background:var(--sl-color-gray-5);border-radius:1rem;overflow:hidden; }
+  .meter > div { height:100%;width:37.5%;background:#26816b;transition:width .15s; }
+</style>
