@@ -24,7 +24,10 @@ export default defineConfig({
       sidebar: [
         {
           label: '第1層：入門',
-          items: [{ autogenerate: { directory: 'level-1' } }],
+          items: [
+            { slug: 'level-1' },
+            { label: 'セキュリティ', autogenerate: { directory: 'level-1/security' } },
+          ],
         },
         {
           label: '第2層：基礎',
