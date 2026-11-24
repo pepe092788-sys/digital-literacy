@@ -1,0 +1,12 @@
+#starlight__sidebar a[data-article-subtitle] > span:first-child {
+  font-weight: 600;
+}
+
+#starlight__sidebar a[data-article-subtitle]::after {
+  content: attr(data-article-subtitle);
+  display: block;
+  margin-block-start: 0.2rem;
+  font-size: var(--sl-text-xs);
+  font-weight: 400;
+  line-height: 1.45;
+}

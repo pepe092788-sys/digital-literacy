@@ -22,6 +22,8 @@ export default defineConfig({
         root: { label: '日本語', lang: 'ja' },
       },
       components: { PageTitle: './src/components/PageTitle.astro' },
+      routeMiddleware: './src/sidebar-subtitles.ts',
+      customCss: ['./src/styles/sidebar.css'],
       sidebar: [
         {
           label: '第1層：入門',
