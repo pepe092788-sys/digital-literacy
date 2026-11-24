@@ -86,6 +86,8 @@ sidebar:
 
 ### 同じ階層で学ぶ
 
+- [データドリブン](../data-driven/)
+
 - [ITガバナンス](../it-governance/)
 - [AIガバナンス](../ai-governance/)
 
