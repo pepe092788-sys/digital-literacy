@@ -86,6 +86,8 @@ sidebar:
 
 ### 同じ階層で学ぶ
 
+- [フロントマターとは？](../../information-design/front-matter/)
+
 - [データドリブン](../data-driven/)
 
 - [ITガバナンス](../it-governance/)

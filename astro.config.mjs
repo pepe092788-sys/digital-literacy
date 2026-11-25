@@ -61,6 +61,7 @@ export default defineConfig({
           collapsed: true,
           items: [
             { label: '概要', slug: 'level-3' },
+            { label: '情報設計', collapsed: true, items: [{ autogenerate: { directory: 'level-3/information-design', collapsed: true } }] },
             { label: '組織運営', collapsed: true, items: [{ autogenerate: { directory: 'level-3/organization', collapsed: true } }] },
           ],
         },
