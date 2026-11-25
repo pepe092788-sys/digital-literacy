@@ -171,4 +171,6 @@ AIにコーディングを任せられる時代だからこそ、設計の理由
 
 ### 関連する知識を学ぶ
 
+- [CMS](../../../level-2/development/cms/) — 管理機能と公開機能を分離する意味を考える
+
 - [ソフトウェア品質](../../../level-2/development/software-quality/)
