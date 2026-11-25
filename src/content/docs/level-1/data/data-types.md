@@ -156,6 +156,8 @@ sidebar:
 
 ### 同じ階層で学ぶ
 
+- [言語と記述形式](../../programming/languages-and-formats/)
+
 - [プログラミング言語](../../../level-1/programming/programming-language/)
 - [コンピュータの仕組み](../../../level-1/computer-basics/computer-structure/)
 
