@@ -230,6 +230,10 @@ sidebar:
 - [公衆Wi-Fi](../public-wifi/) — 偽の接続先やログイン画面がもたらす危険性を知る
 - [マルウェア](../malware/) — 認証技術だけでは防げない脅威を理解する
 
+### 関連する知識を学ぶ
+
+- [CMS](../../../level-2/development/cms/) — 攻撃が成立する経路を減らす設計を考える
+
 ## 参考資料
 
 - [FIDO Alliance — Passkeys](https://fidoalliance.org/passkeys/)
