@@ -21,7 +21,7 @@ export default defineConfig({
       locales: {
         root: { label: '日本語', lang: 'ja' },
       },
-      components: { PageTitle: './src/components/PageTitle.astro' },
+      components: { PageTitle: './src/components/PageTitle.astro', Sidebar: './src/components/ConceptSidebar.astro' },
       routeMiddleware: './src/sidebar-subtitles.ts',
       customCss: ['./src/styles/sidebar.css'],
       pagination: false,

@@ -1,0 +1,103 @@
+---
+import DefaultSidebar from '@astrojs/starlight/components/Sidebar.astro'
+import { getCollection } from 'astro:content'
+import { commonSlugs, conceptGroups, normalizeSlug, validateConceptCoverage } from '../concept-sidebar.mjs'
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '')
+const articles = await getCollection('docs')
+const bySlug = new Map(articles.map(article => [normalizeSlug(article.id), article.data]))
+validateConceptCoverage([...bySlug.keys()])
+
+const currentPath = Astro.url.pathname.replace(/\/$/, '')
+function link(slug: string) {
+  const data = bySlug.get(slug)!
+  const href = slug ? base + '/' + slug + '/' : base + '/'
+  return {
+    href,
+    title: data.title,
+    subtitle: data.subtitle,
+    current: href.replace(/\/$/, '') === currentPath,
+  }
+}
+const groups = conceptGroups.map(group => ({
+  label: group.label,
+  links: group.slugs.map(link),
+}))
+const common = commonSlugs.filter(slug => slug !== 'about').map(link)
+const about = link('about')
+---
+<div data-sidebar-mode="system" class="sidebar-mode">
+  <div class="sidebar-mode-switch" role="group" aria-label="教材の表示方式" hidden>
+    <button type="button" data-mode-choice="system" aria-pressed="true">体系別</button>
+    <button type="button" data-mode-choice="concept" aria-pressed="false">概念別</button>
+  </div>
+  <div class="concept-sidebar" data-concept-menu hidden>
+    <ul class="concept-common">
+      {common.map(item => (
+        <li><a href={item.href} aria-current={item.current ? 'page' : undefined} data-article-subtitle={item.subtitle}><span>{item.title}</span></a></li>
+      ))}
+    </ul>
+    <ul class="concept-groups">
+      {groups.map(group => (
+        <li>
+          <details open={group.links.some(item => item.current)}>
+            <summary>{group.label}</summary>
+            <ul>
+              {group.links.map(item => (
+                <li><a href={item.href} aria-current={item.current ? 'page' : undefined} data-article-subtitle={item.subtitle} aria-label={item.subtitle ? item.title + '。 ' + item.subtitle : undefined}><span>{item.title}</span></a></li>
+              ))}
+            </ul>
+          </details>
+        </li>
+      ))}
+    </ul>
+    <a class="site-about-link concept-about" href={about.href} aria-current={about.current ? 'page' : undefined} data-article-subtitle={about.subtitle}><span>{about.title}</span></a>
+  </div>
+  <div class="system-sidebar"><DefaultSidebar /></div>
+</div>
+<script is:inline>
+  (() => {
+    const root = document.currentScript.previousElementSibling;
+    const key = 'digital-literacy.sidebar-mode';
+    const controls = root.querySelector('.sidebar-mode-switch');
+    const concept = root.querySelector('[data-concept-menu]');
+    const system = root.querySelector('.system-sidebar .top-level');
+    if (!controls || !concept || !system) return;
+    function select(mode) {
+      const isConcept = mode === 'concept';
+      root.dataset.sidebarMode = isConcept ? 'concept' : 'system';
+      concept.hidden = !isConcept;
+      system.hidden = isConcept;
+      controls.querySelectorAll('button').forEach(button => {
+        button.setAttribute('aria-pressed', String(button.dataset.modeChoice === root.dataset.sidebarMode));
+      });
+    }
+    let initial = 'system';
+    try { initial = localStorage.getItem(key) || initial; } catch {}
+    select(initial);
+    controls.hidden = false;
+    controls.addEventListener('click', event => {
+      const button = event.target.closest('button[data-mode-choice]');
+      if (!button) return;
+      select(button.dataset.modeChoice);
+      try { localStorage.setItem(key, root.dataset.sidebarMode); } catch {}
+    });
+  })();
+</script>
+<style>
+  .sidebar-mode-switch { display: flex; gap: .25rem; margin-block-end: 1rem; padding: .25rem; border: 1px solid var(--sl-color-hairline); border-radius: .5rem; }
+  .sidebar-mode-switch[hidden], .concept-sidebar[hidden], .system-sidebar :global(.top-level[hidden]) { display: none !important; }
+  .sidebar-mode-switch button { flex: 1; border: 0; border-radius: .25rem; padding: .5rem; font: inherit; font-size: var(--sl-text-sm); color: var(--sl-color-gray-2); background: transparent; cursor: pointer; }
+  .sidebar-mode-switch button[aria-pressed="true"] { font-weight: 600; color: var(--sl-color-text-invert); background: var(--sl-color-text-accent); }
+  .sidebar-mode-switch button:focus-visible, .concept-sidebar a:focus-visible, .concept-sidebar summary:focus-visible { outline: 2px solid var(--sl-color-text-accent); outline-offset: 2px; }
+  .concept-sidebar ul { list-style: none; padding: 0; margin: 0; }
+  .concept-common { margin-block-end: 1rem !important; padding-block-end: .5rem !important; border-bottom: 1px solid var(--sl-color-hairline-light); }
+  .concept-groups > li + li { margin-top: .5rem; }
+  .concept-sidebar summary { cursor: pointer; padding: .3rem .5rem; color: var(--sl-color-white); font-weight: 600; }
+  .concept-groups details ul { margin-inline-start: .5rem; border-inline-start: 1px solid var(--sl-color-hairline-light); padding-inline-start: .5rem; }
+  .concept-sidebar a { display: block; border-radius: .25rem; text-decoration: none; color: var(--sl-color-gray-2); padding: .3rem .5rem; line-height: 1.4; overflow-wrap: anywhere; }
+  .concept-sidebar a:hover, .concept-sidebar a:focus { color: var(--sl-color-white); }
+  .concept-sidebar a[aria-current="page"] { font-weight: 600; color: var(--sl-color-text-invert); background: var(--sl-color-text-accent); }
+  .concept-about { margin-block-start: 2rem; margin-block-end: .5rem; }
+  @media (min-width: 50rem) { .concept-sidebar a { font-size: var(--sl-text-sm); } }
+</style>
