@@ -11,7 +11,7 @@ export const conceptGroups = [
   { label: "リスク", slugs: ["level-1/security/security-hole","level-1/security/malware","level-1/security/ransomware","level-1/security/public-wifi","level-1/security/shadow-it-ai","level-1/security/hardcoding","level-1/network/network-troubles"] },
   { label: "共有", slugs: ["level-1/infrastructure/servers"] },
   { label: "表現", slugs: ["level-2/ai/information-design","level-2/ai/visual-expression","level-2/ai/diagram-methods","level-2/ai/output-formats","level-2/ai/interactive-content"] },
-  { label: "学習", slugs: ["prologue","prologue/learning-attitude","prologue/learning-skills"] },
+  { label: "学習", slugs: ["prologue","prologue/learning-attitude","prologue/learning-skills","level-1/security/security-information-sources"] },
   { label: "人工知能", slugs: ["level-2/ai/machine-learning"] },
   { label: "思考と判断", slugs: ["prologue/thinking-skills","prologue/ai-mindset","level-3/organization/data-driven"] },
   { label: "品質と性能", slugs: ["level-1/computer-basics/pc-specifications","level-2/development/software-quality"] },
