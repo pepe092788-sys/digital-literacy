@@ -1,0 +1,140 @@
+---
+interface Props {
+  kind: 'characters' | 'bpe' | 'ids' | 'vectors' | 'flow';
+}
+const { kind } = Astro.props;
+const text = '猫が好き';
+const chars = Array.from(text);
+const stages = [
+  { title: '初期状態', rows: ['東京駅','東京都','東京都','東京湾','東京都庁'].map(s => Array.from(s)), note: '東 ＋ 京：5回、京 ＋ 都：3回。最も頻出する「東 ＋ 京」を統合します。' },
+  { title: '1回目の統合', rows: [['東京','駅'],['東京','都'],['東京','都'],['東京','湾'],['東京','都','庁']], note: '「東京」を登録しました。次に東京 ＋ 都が3回登場するため統合します。' },
+  { title: '2回目の統合', rows: [['東京','駅'],['東京都'],['東京都'],['東京','湾'],['東京都','庁']], note: '「東京都」を登録しました。頻出する組み合わせを繰り返し統合して語彙を増やします。' },
+];
+const vectors = [
+  { label: '猫', values: [0.82,-0.31,0.64,0.15] },
+  { label: '犬', values: [0.79,-0.28,0.61,0.20] },
+  { label: '自動車', values: [-0.42,0.91,-0.18,0.73] },
+];
+const flow = [
+  ['自然言語','人間が使う言葉や文章'],
+  ['文字コード','文字を数値で表現する'],
+  ['トークン化','文章を処理単位に分ける'],
+  ['トークンID','処理単位を番号で識別する'],
+  ['埋め込み','複数の数値で表現する'],
+  ['機械学習','予測の誤差をもとに数値を調整する'],
+];
+---
+<figure class="language-diagram">
+  {kind === 'characters' && (
+    <>
+      <div class="character-grid">
+        {chars.map(char => <div class="character"><strong>{char}</strong><span aria-hidden="true">↓</span><code>{char.codePointAt(0)}</code></div>)}
+      </div>
+      <figcaption>文字をUnicodeのコードポイント（10進数）に変換する例</figcaption>
+    </>
+  )}
+  {kind === 'bpe' && (
+    <div data-bpe-demo>
+      <strong class="diagram-title">トークンを作る仕組み</strong>
+      <div class="stages" aria-live="polite">
+        {stages.map(stage => (
+          <section data-bpe-stage class="bpe-stage" aria-label={stage.title}>
+            <strong>{stage.title}</strong>
+            <div class="token-rows">
+              {stage.rows.map(row => <div class="tokens">{row.map(token => <span class:list={['token', {merged:token.length > 1}]}>{token}</span>)}</div>)}
+            </div>
+            <p class="stage-note">{stage.note}</p>
+          </section>
+        ))}
+      </div>
+      <div class="controls" data-bpe-controls hidden>
+        <button type="button" data-bpe-reset>リセット</button>
+        <button type="button" data-bpe-next>頻出する組み合わせを統合</button>
+      </div>
+      <figcaption>文字単位に簡略化した例です。実際にはUTF-8のバイト単位を出発点にする方式もあります。JavaScriptが無効の場合は、すべての段階を順に表示します。</figcaption>
+    </div>
+  )}
+  {kind === 'ids' && (
+    <>
+      <div class="conversion"><strong>東京駅</strong><span>↓ トークン化</span><div class="tokens centered"><span class="token merged">東京</span><span class="token">駅</span></div><span>↓ IDへの変換</span><div class="tokens centered"><code>1001</code><code>104</code></div></div>
+      <figcaption>架空のトークンIDを使った例</figcaption>
+    </>
+  )}
+  {kind === 'vectors' && (
+    <>
+      <div class="vector-grid">
+        {vectors.map(vector => <div class="vector-row"><strong>{vector.label}</strong><span aria-hidden="true">→</span><div class="vector-values">{vector.values.map(value => <span class:list={['value', {negative:value<0}]}>{value.toFixed(2)}</span>)}</div></div>)}
+      </div>
+      <figcaption>学習後のベクトルを単純化した架空の例。ここでは各語を一つのトークンとして扱っています。</figcaption>
+    </>
+  )}
+  {kind === 'flow' && (
+    <>
+      <ol class="flow">
+        {flow.map(([label, explanation],i) => <li>{i > 0 && <span class="down" aria-hidden="true">↓</span>}<div class="flow-node"><strong>{label}</strong><span>{explanation}</span></div></li>)}
+      </ol>
+      <figcaption>一般的な言語モデルの仕組みを簡略化したもの</figcaption>
+    </>
+  )}
+</figure>
+<script>
+  function initBpe() {
+    document.querySelectorAll<HTMLElement>('[data-bpe-demo]').forEach(demo => {
+      if (demo.dataset.initialized) return;
+      const stages = Array.from(demo.querySelectorAll<HTMLElement>('[data-bpe-stage]'));
+      const controls = demo.querySelector<HTMLElement>('[data-bpe-controls]');
+      const next = demo.querySelector<HTMLButtonElement>('[data-bpe-next]');
+      const reset = demo.querySelector<HTMLButtonElement>('[data-bpe-reset]');
+      if (!stages.length || !controls || !next || !reset) return;
+      let stage = 0;
+      function render() {
+        stages.forEach((panel, i) => panel.hidden = i !== stage);
+        if (next) next.disabled = stage === stages.length - 1;
+        if (reset) reset.disabled = stage === 0;
+      }
+      next.addEventListener('click', () => { stage = Math.min(stage + 1, stages.length - 1); render(); });
+      reset.addEventListener('click', () => { stage = 0; render(); });
+      controls.hidden = false;
+      demo.dataset.initialized = 'true';
+      render();
+    });
+  }
+  initBpe();
+  document.addEventListener('astro:page-load', initBpe);
+</script>
+<style>
+  .language-diagram { margin: 1.25rem 0; padding: 1rem; border: 1px solid var(--sl-color-gray-5); border-radius: .7rem; background: var(--sl-color-bg); font-size: .9rem; }
+  .language-diagram [hidden] { display: none !important; }
+  .language-diagram figcaption { color: var(--sl-color-gray-2); font-size: .8rem; margin-top: .85rem; line-height: 1.6; }
+  .character-grid { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: .35rem; }
+  .character { display: grid; gap: .5rem; text-align: center; }
+  .character strong { background: var(--sl-color-gray-6); border-radius: .4rem; padding: .5rem .1rem; font-size: 1.25rem; }
+  .character code { padding: .35rem .1rem; font-size: clamp(.65rem,2.6vw,.9rem); border-radius: .35rem; white-space: nowrap; }
+  .diagram-title { display: block; font-size: 1rem; }
+  .bpe-stage { margin-top: .7rem; padding: .7rem; border: 1px solid var(--sl-color-gray-5); border-radius: .45rem; }
+  .token-rows { display: grid; gap: .4rem; margin: .6rem 0; }
+  .tokens { display: flex; flex-wrap: wrap; gap: .3rem; align-items: center; }
+  .token { border: 1px solid var(--sl-color-gray-5); background: var(--sl-color-gray-6); border-radius: .3rem; padding: .2rem .65rem; line-height: 1.8; }
+  .merged { background: var(--sl-color-accent-low); border-color: var(--sl-color-accent); color: var(--sl-color-white); font-weight: 600; }
+  .stage-note { font-size: .85rem; margin: .55rem 0 0; }
+  .controls { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: .8rem; }
+  .controls button { cursor: pointer; border: 1px solid var(--sl-color-gray-4); border-radius: .35rem; padding: .55rem .8rem; color: var(--sl-color-white); background: var(--sl-color-gray-6); font: inherit; }
+  .controls button[data-bpe-next] { background: var(--sl-color-text-accent); color: var(--sl-color-bg); border-color: var(--sl-color-text-accent); font-weight: 600; }
+  .controls button:disabled { opacity: .5; cursor: default; }
+  .controls button:focus-visible { outline: 2px solid var(--sl-color-text-accent); outline-offset: 3px; }
+  .conversion { display: grid; justify-items: center; gap: .5rem; }
+  .conversion > strong { font-size: 1.3rem; }
+  .conversion > span { color: var(--sl-color-gray-2); }
+  .centered { justify-content: center; }
+  .vector-grid { display: grid; gap: .5rem; }
+  .vector-row { display: grid; grid-template-columns: 4.1rem 1rem minmax(0,1fr); gap: .3rem; align-items: center; }
+  .vector-values { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: .2rem; }
+  .value { padding: .45rem .1rem; text-align: center; border-radius: .3rem; background: #275b90; color: white; font-variant-numeric: tabular-nums; font-size: clamp(.65rem,2.6vw,.9rem); }
+  .negative { background: #984d2b; }
+  .flow { list-style: none; margin: 0; padding: 0; }
+  .flow li { margin: 0; text-align: center; padding: 0; }
+  .down { display: block; padding: .15rem; color: var(--sl-color-gray-2); }
+  .flow-node { display: grid; padding: .65rem .35rem; background: var(--sl-color-gray-6); border-radius: .35rem; gap: .15rem; }
+  .flow-node span { font-size: .85rem; }
+  @media (max-width: 400px) { .language-diagram { padding: .65rem; } .vector-row { grid-template-columns: 3.5rem .7rem minmax(0,1fr); gap: .2rem; } }
+</style>

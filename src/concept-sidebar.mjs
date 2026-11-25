@@ -12,7 +12,7 @@ export const conceptGroups = [
   { label: "共有", slugs: ["level-1/infrastructure/servers"] },
   { label: "表現", slugs: ["level-2/ai/information-design","level-2/ai/visual-expression","level-2/ai/diagram-methods","level-2/ai/output-formats","level-2/ai/interactive-content"] },
   { label: "学習", slugs: ["prologue","prologue/learning-attitude","prologue/learning-skills","level-1/security/security-information-sources"] },
-  { label: "人工知能", slugs: ["level-2/ai/machine-learning"] },
+  { label: "人工知能", slugs: ["level-2/ai/machine-learning","level-2/ai/natural-language-numerical-representation"] },
   { label: "思考と判断", slugs: ["prologue/thinking-skills","prologue/ai-mindset","level-3/organization/data-driven"] },
   { label: "品質と性能", slugs: ["level-1/computer-basics/pc-specifications","level-2/development/software-quality"] },
   { label: "情報処理", slugs: ["level-1/computer-basics/computer-structure","level-1/software/software-basics","level-1/algorithms/basic-control-structures"] },
