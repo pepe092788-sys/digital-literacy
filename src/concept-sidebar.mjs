@@ -16,6 +16,7 @@ export const conceptGroups = [
   { label: "思考と判断", slugs: ["prologue/thinking-skills","prologue/ai-mindset","level-3/organization/data-driven"] },
   { label: "品質と性能", slugs: ["level-1/computer-basics/pc-specifications","level-2/development/software-quality"] },
   { label: "情報処理", slugs: ["level-1/computer-basics/computer-structure","level-1/software/software-basics","level-1/algorithms/basic-control-structures"] },
+  { label: "トラブル事例", slugs: ["extra/crowdstrike-2024","extra/tokyo-stock-exchange-2020","extra/mars-climate-orbiter-1999","extra/kddi-2022","extra/gitlab-2017","extra/mizuho-2021"] },
 ]
 
 export const commonSlugs = ["","level-1","level-2","level-3","about"]

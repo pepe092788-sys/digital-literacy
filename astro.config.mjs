@@ -66,6 +66,11 @@ export default defineConfig({
             { label: '組織運営', collapsed: true, items: [{ autogenerate: { directory: 'level-3/organization', collapsed: true } }] },
           ],
         },
+        {
+          label: '番外',
+          collapsed: true,
+          items: [{ autogenerate: { directory: 'extra', collapsed: true } }],
+        },
         { label: 'このサイトについて', slug: 'about', attrs: { class: 'site-about-link' } },
       ],
     }),
