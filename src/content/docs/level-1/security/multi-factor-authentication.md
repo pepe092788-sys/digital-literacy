@@ -71,6 +71,8 @@ sidebar:
 
 ### 同じ階層で学ぶ
 
+- [セキュリティホール](../security-hole/) — 弱点が生まれる場所を理解する
+
 - [パスキー](../passkey/)
 
 - [ハードコード](../../../level-1/security/hardcoding/)
