@@ -164,3 +164,7 @@ sidebar:
 ### 関連する知識を学ぶ
 
 - [機械学習](../../../level-2/ai/machine-learning/)
+
+### さらに深く学ぶ
+
+- [自然言語の数値化](../../../level-2/ai/natural-language-numerical-representation/) — 文字の番号と意味の表現の違い

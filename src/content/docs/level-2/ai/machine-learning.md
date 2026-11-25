@@ -87,6 +87,8 @@ AIは、普通のプログラムをすべて置き換えるものではありま
 
 ### 同じ階層で学ぶ
 
+- [自然言語の数値化](../natural-language-numerical-representation/) — 言葉を学習できる形に変換する
+
 - [生成AIのスキル](../../../level-2/ai/skills/)
 
 ### 関連する知識を学ぶ
