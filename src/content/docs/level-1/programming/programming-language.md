@@ -150,6 +150,8 @@ Python、JavaScript、Java、C、C#……。プログラミング言語には、
 
 ### 同じ階層で学ぶ
 
+- [言語と記述形式](../languages-and-formats/)
+
 - [制御構造（順次・分岐・反復）](../../../level-1/algorithms/basic-control-structures/)
 - [データ型](../../../level-1/data/data-types/)
 - [ソフトウェアの役割](../../../level-1/software/software-basics/)
