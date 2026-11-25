@@ -138,4 +138,8 @@ tags:
 
 - [データマネジメント](../../organization/data-management/)
 
+### 関連する知識を学ぶ
+
+- [言語と記述形式](../../../level-1/programming/languages-and-formats/)
+
 参考：[Astro公式ドキュメント：Markdown & MDX](https://docs.astro.build/en/guides/markdown-content/)、[Jekyll公式ドキュメント：Front Matter](https://jekyllrb.com/docs/front-matter/)
