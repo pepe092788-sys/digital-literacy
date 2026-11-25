@@ -164,6 +164,8 @@ AIにコーディングを任せられる時代だからこそ、設計の理由
 
 ### 同じ階層で学ぶ
 
+- [パスキー](../passkey/)
+
 - [多要素認証](../../../level-1/security/multi-factor-authentication/)
 - [公衆Wi‑Fi](../../../level-1/security/public-wifi/)
 
