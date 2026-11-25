@@ -67,7 +67,7 @@ export default defineConfig({
           ],
         },
         {
-          label: '番外',
+          label: '番外：トラブル事例',
           collapsed: true,
           items: [{ autogenerate: { directory: 'extra', collapsed: true } }],
         },
