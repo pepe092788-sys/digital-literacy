@@ -25,6 +25,7 @@ export default defineConfig({
       routeMiddleware: './src/sidebar-subtitles.ts',
       customCss: ['./src/styles/sidebar.css'],
       pagination: false,
+      tableOfContents: false,
       sidebar: [
         {
           label: '序章：学びの土台',
