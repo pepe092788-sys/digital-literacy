@@ -10,7 +10,7 @@ Digital Literacy は、ITを中心に関連するビジネス領域も扱う日�
 
 - Astro + Starlight、静的サイト。Node.js の要件と依存関係は package.json と package-lock.json を正とする。
 - 記事は `src/content/docs/level-1/` から `level-3/` の各階層内に作る分野ディレクトリ配下の `.md` または `.mdx`。
-- 番外の実際のITトラブル事例は `src/content/docs/extra/` に置く。体系別では「番外」、概念別では「トラブル事例」に分類する。3階層とは別枠とし、1事例1記事で公式発表等の出典を明記する。事実と一般化した教訓を区別し、既存知識への関連リンクを設定する。
+- 番外の実際のITトラブル事例は `src/content/docs/extra/` に置く。体系別では「番外：トラブル事例」、概念別では「トラブル事例」に分類する。他の番外テーマとは必要に応じて独立した分類にする。3階層とは別枠とし、1事例1記事で公式発表等の出典を明記する。事実と一般化した教訓を区別し、既存知識への関連リンクを設定する。
 - 序章「学びの土台」は知識の3階層とは別枠とし、`src/content/docs/prologue/` に置く。`index.mdx` が概要。各記事は学びの姿勢・思考法・AIとの向き合い方を扱い、必須の前提条件にはしない。
 - コンポーネントは src/components/。設定は astro.config.mjs と src/content.config.ts。
 - README.md の記事追加、リンク、画像、ビルド、公開手順を参照する。
