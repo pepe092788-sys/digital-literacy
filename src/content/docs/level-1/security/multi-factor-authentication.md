@@ -71,5 +71,7 @@ sidebar:
 
 ### 同じ階層で学ぶ
 
+- [パスキー](../passkey/)
+
 - [ハードコード](../../../level-1/security/hardcoding/)
 - [公衆Wi‑Fi](../../../level-1/security/public-wifi/)
