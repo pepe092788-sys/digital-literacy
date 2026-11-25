@@ -131,6 +131,7 @@ sidebar:
 
 ### 同じ階層で学ぶ
 
+- [パソコンのスペックの見方](../pc-specifications/)
 - [ソフトウェアの役割](../../../level-1/software/software-basics/)
 - [コンピュータの小型化](../../../level-1/history/computer-miniaturization/)
 - [データ型](../../../level-1/data/data-types/)
