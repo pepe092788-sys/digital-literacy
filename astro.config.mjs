@@ -53,7 +53,6 @@ export default defineConfig({
           collapsed: true,
           items: [
             { label: '概要', slug: 'level-2' },
-            { label: 'インフラ', collapsed: true, items: [{ autogenerate: { directory: 'level-2/infrastructure', collapsed: true } }] },
             { label: 'システム開発', collapsed: true, items: [{ autogenerate: { directory: 'level-2/development', collapsed: true } }] },
             { label: '生成AI', collapsed: true, items: [{ autogenerate: { directory: 'level-2/ai', collapsed: true } }] },
           ],
@@ -63,6 +62,7 @@ export default defineConfig({
           collapsed: true,
           items: [
             { label: '概要', slug: 'level-3' },
+            { label: 'インフラ', collapsed: true, items: [{ autogenerate: { directory: 'level-3/infrastructure', collapsed: true } }] },
             { label: '情報設計', collapsed: true, items: [{ autogenerate: { directory: 'level-3/information-design', collapsed: true } }] },
             { label: '組織運営', collapsed: true, items: [{ autogenerate: { directory: 'level-3/organization', collapsed: true } }] },
           ],

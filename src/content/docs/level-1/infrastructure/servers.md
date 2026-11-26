@@ -93,4 +93,4 @@ sidebar:
 
 ### さらに深く学ぶ
 
-- [Active Directory（AD）](../../../level-2/infrastructure/active-directory/) — ユーザーや端末を一元管理する仕組み
+- [Active Directory（AD）](../../../level-3/infrastructure/active-directory/) — ユーザーや端末を一元管理する仕組み

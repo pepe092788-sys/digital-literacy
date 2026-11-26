@@ -134,8 +134,11 @@ Active Directoryは、組織内のユーザーやコンピュータを一元的�
 
 ## 知識を広げる
 
+### 同じ階層で学ぶ
+
+- [ITガバナンス](../../../level-3/organization/it-governance/) — 組織全体のIT管理を考える
+
 ### 関連する知識を学ぶ
 
 - [サーバー](../../../level-1/infrastructure/servers/) — 認証などの機能を提供するコンピュータの役割
 - [多要素認証](../../../level-1/security/multi-factor-authentication/) — 本人確認の信頼性を高める仕組み
-- [ITガバナンス](../../../level-3/organization/it-governance/) — 組織全体のIT管理を考える
