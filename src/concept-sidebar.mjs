@@ -7,7 +7,7 @@ export const conceptGroups = [
   { label: "再利用", slugs: ["level-2/ai/skills"] },
   { label: "最適化", slugs: ["level-1/history/computer-miniaturization"] },
   { label: "信頼と検証", slugs: ["level-1/security/multi-factor-authentication","level-1/security/passkey"] },
-  { label: "管理", slugs: ["level-2/infrastructure/active-directory","level-2/development/cms","level-3/organization/data-management","level-3/organization/it-governance","level-3/organization/ai-governance"] },
+  { label: "管理", slugs: ["level-3/infrastructure/active-directory","level-2/development/cms","level-3/organization/data-management","level-3/organization/it-governance","level-3/organization/ai-governance"] },
   { label: "リスク", slugs: ["level-1/security/security-hole","level-1/security/malware","level-1/security/ransomware","level-1/security/public-wifi","level-1/security/shadow-it-ai","level-1/security/hardcoding","level-1/network/network-troubles"] },
   { label: "共有", slugs: ["level-1/infrastructure/servers"] },
   { label: "表現", slugs: ["level-2/ai/information-design","level-2/ai/visual-expression","level-2/ai/diagram-methods","level-2/ai/output-formats","level-2/ai/interactive-content"] },
