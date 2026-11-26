@@ -90,3 +90,7 @@ sidebar:
 - [ネットワーク障害](../../../level-1/network/network-troubles/)
 - [コンピュータの仕組み](../../../level-1/computer-basics/computer-structure/)
 - [ソフトウェアの役割](../../../level-1/software/software-basics/)
+
+### さらに深く学ぶ
+
+- [Active Directory（AD）](../../../level-2/infrastructure/active-directory/) — ユーザーや端末を一元管理する仕組み
